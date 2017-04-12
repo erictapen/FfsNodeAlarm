@@ -4,9 +4,7 @@ with lib;
 
 let 
   cfg = config.services.nodealarm;
-  # WHYYY?
-  pack = pkgs.callPackage ./default.nix {};
-  #pack = ./default.nix;
+  pkg = pkgs.callPackage ./default.nix {};
 in
 
 {
@@ -37,7 +35,8 @@ in
           mkdir -p ${cfg.stateDir}
           echo state angelegt
         fi
-        cp -r $pack/public/ ${cfg.stateDir}/
+        echo "Die Anwendung liegt in ${pkg}"
+        cp -r ${pkg}/public/ ${cfg.stateDir}/
         # TODO
         # Erstmal alles in statedir schreiben
         # .env init mit php artisan keys:generate

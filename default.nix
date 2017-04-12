@@ -1,4 +1,5 @@
-with import <nixpkgs> {};
+#with import <nixpkgs> {};
+{pkgs, stdenv, buildEnv, ...}:
 
 stdenv.mkDerivation rec {
   name = "ffsnodealarm-${version}";
